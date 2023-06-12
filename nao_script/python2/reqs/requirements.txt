@@ -1,0 +1,10 @@
+ipykernel
+pylint<2.0.0
+Pillow
+pandas
+matplotlib
+paramiko
+flask
+requests
+SpeechRecognition==3.8.1
+scipy
