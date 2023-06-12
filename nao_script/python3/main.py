@@ -127,8 +127,6 @@ def gespreach(SILENT_THRESHOLD):
             answer = open_ai_prompt(messages)
             answer_content = answer['choices'][0]['message']["content"]
             messages.append({"role": role[1], "content": answer_content})
-            with open('messages.json', 'w') as f:
-                json.dump(messages, f)
             return answer_content, prompt
         elif prompt is None:
             answer_content = "You was too slow, because the silent treshold is 2 seconds."
@@ -145,7 +143,6 @@ def chat():
     if request.method == 'POST' or request.method == 'GET':
         response, prompt = gespreach(SILENT_THRESHOLD)
         return {'prompt':prompt,'response': response}
-
 
 
 if __name__ == '__main__':
