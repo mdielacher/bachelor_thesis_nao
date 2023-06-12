@@ -23,11 +23,6 @@ with open("python3/Settings/secret_keys.json") as json_file: # set secret key
         keys = json.load(json_file)
 openai.api_key = keys['Open_AI']
 
-# set engine
-engine = pyttsx3.init()
-voices = engine.getProperty('voices')
-engine.setProperty("voice", voices[0].id)
-
 # Minimum volume to start recording
 MIN_VOLUME = 500
 
