@@ -25,7 +25,7 @@ NAOIP = 'NAO_IP
 PORT = 9559
 NAME = "nao"
 PASSWD = "NAOPWD"
-BASE_API = 'http://IP/chat'
+BASE_API = 'http://YOURFLASKIP/chat'
 
 # fileshare
 json_file = "fileshare/nao_conversation.json"
@@ -59,19 +59,19 @@ LEDSPROXY = ALProxy('ALLeds', NAOIP, PORT)
 
 
 fileshare = os.path.join(os.getcwd(), 'fileshare')
-#time.sleep(2) # Time sleep 3 seconds
-#TEXTPROXY.say(dialog[0])# welcome speech from Dialog.py
-#time.sleep(3)
-#TEXTPROXY.say(introduction)
+time.sleep(2) # Time sleep 3 seconds
+TEXTPROXY.say(dialog[0])# welcome speech from Dialog.py
+time.sleep(3)
+TEXTPROXY.say(introduction)
 
 def get_and_save(id, existing_data):
     current_time = datetime.now().strftime("%H:%M:%S")
     prompt = ""
     while True:
         if prompt != "stop":
+            time.sleep(2)
             current_time = datetime.now().strftime("%H:%M:%S")
             start_text = start[random.randint(0, len(start)-1)]
-            time.sleep(2)
             print(start_text)
             TEXTPROXY.say(start_text)
             response = requests.get(BASE_API)
@@ -80,7 +80,7 @@ def get_and_save(id, existing_data):
             prompt = data.get("prompt")
             response = data.get("response")
             print('prompt: ' + str(prompt))
-            print('prompt: ' + str(response))
+            print('response: ' + str(response))
             TEXTPROXY.say(str(response))
             new_data = {"time": current_time, "prompt": prompt, "response": response}
             existing_data["conversation"][str(id)].append(new_data)
