@@ -20,7 +20,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 
-openai.api_key = "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"
+openai.api_key = "EDIT IT"
 
 # Minimum volume to start recording
 MIN_VOLUME = 500
