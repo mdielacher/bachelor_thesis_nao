@@ -16,16 +16,14 @@ from csv import writer
 from datetime import datetime
 import multiprocessing
 
-
-
 ############
 # SETTINGS #
 ############
-NAOIP = 'NAO_IP 
+NAOIP = '192.168.8.105' 
 PORT = 9559
 NAME = "nao"
-PASSWD = "NAOPWD"
-BASE_API = 'http://YOURFLASKIP/chat'
+PASSWD = "19981"
+BASE_API = 'http://192.168.8.120:5000/chat'
 
 
 json_file = "fileshare/nao_conversation.json"
@@ -42,7 +40,7 @@ if not os.path.isfile(json_file): # check if json file exists
 # TEXT FOR NAO #
 ################
 dialog = ["I am NAO, an advanced AI-powered robot designed for engaging conversations. Before we proceed, I would like to assure you that your privacy and data security are of utmost importance to us. Please note that I am an experimental entity, and our interactions serve as a learning experience.", "I am NAO, an advanced AI-powered robot designed for engaging conversations. As part of this experiment, it is important to clarify that only the conversation history is stored for analysis and improvement purposes. Rest assured, any personal or sensitive information shared during our conversation will be treated with the utmost confidentiality and will not be used for any other purpose."]
-introduction = "I am connected to a Large Language MOdel and you can ask me anything you want. The only problem is that I can only speak English, please try."
+introduction = "I am connected to a Large Language Model and you can ask me anything you want. The only problem is that I can only speak English, please try."
 start = ["You can start now.", "I am ready to listen. Please begin speaking.", "You have the opportunity to share your ideas now.", "Feel free to start speaking now.", "You can speak now!", "It's your turn to talk. Go ahead!", "The floor is yours. You can start speaking now.", "Feel free to express your thoughts now!", "puuuuuuh, I am now out of puff... please talk now."]
 
 #########

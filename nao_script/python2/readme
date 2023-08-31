@@ -1,0 +1,5 @@
+First step build python2 dockerfile for NAO.
+docker build . -f python2.dockerfile -t python2
+
+Second step:
+docker run -it --name mein-container2 python
