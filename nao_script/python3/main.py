@@ -19,9 +19,8 @@ from flask import Flask, request
 #define app
 app = Flask(__name__)
 
-with open("python3/Settings/secret_keys.json") as json_file: # set secret key
-        keys = json.load(json_file)
-openai.api_key = keys['Open_AI']
+
+openai.api_key = "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"
 
 # Minimum volume to start recording
 MIN_VOLUME = 500
@@ -109,7 +108,7 @@ def speech_recognition(remoteaudiofile):
         except sr.UnknownValueError as uve: # Error handling
             print('Error ', uve)
         finally:
-            os.remove(remoteaudiofile) # delet the file
+            os.remove(remoteaudiofile) # delete the file
 
 
 """
